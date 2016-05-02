@@ -1,0 +1,13 @@
+{
+	"name": "infrajs/config-search",
+	"homepage":"https://github.com/infrajs/config-search",
+	"license": "GPL3",
+	"autoload": {
+		"psr-4": { "infrajs\\config-search\\": "" }
+	},
+	"require":{
+		"infrajs/cache":"~1",
+		"infrajs/path":"~1",
+		"infrajs/load":"~1"
+	}
+}
