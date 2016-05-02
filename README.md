@@ -37,11 +37,11 @@
 ```json
 {
 	"path":{
-		"search":{
+		"search":[
 			"vendor/components/",
 			"vendor/twbs/",
 			"bower_components/"
-		}
+		]
 	}
 }
 ```
