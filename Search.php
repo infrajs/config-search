@@ -3,9 +3,13 @@ namespace infrajs\config\search;
 use infrajs\cache\Cache;
 use infrajs\load\Load;
 use infrajs\path\Path;
+use infrajs\config\Config;
 class Search {
 	public static function init ()
 	{
+		//Заполнять Path::$conf['search'] нужно после того как пройдёт инициализация конфигов .infra.json
+		//Чтобы значения по умолчанию не заменили сгенерированные значения
+		Config::init();
 		static::checkFS();
 		
 	}
@@ -28,7 +32,7 @@ class Search {
 				return false; //вглубь не идём и в соседние папки тоже
 			});
 			return $search;
-		},array(),true);
+		});
 		Path::$conf['search'] = array_values(array_unique(array_merge(Path::$conf['search'], $search)));
 		/*$comp = Load::loadJSON('composer.json');
 		if ($comp && !empty($comp['require'])) {	

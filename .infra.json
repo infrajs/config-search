@@ -1,3 +1,4 @@
 {
-	"tester":"tester.php"
+	"tester":"tester.php",
+	"dependencies":"path"
 }

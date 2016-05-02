@@ -8,8 +8,10 @@ if(!is_file('vendor/autoload.php')) {
 	chdir('../../../');
 	require_once('vendor/autoload.php');
 }
-//\infrajs\config\Config::init();
+
 Search::init();
+
+
 
 $ans = array();
 $ans['search'] = Path::$conf['search'];
