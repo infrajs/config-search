@@ -1,4 +1,5 @@
 {
 	"tester":"tester.php",
-	"dependencies":"path"
+	"dependencies":"path",
+	"conf":"\\infrajs\\config\\search\\Search"
 }

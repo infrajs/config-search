@@ -5,11 +5,15 @@ use infrajs\load\Load;
 use infrajs\path\Path;
 use infrajs\config\Config;
 class Search {
+	public static $conf = array(
+		"off" => false
+	);
 	public static function init ()
 	{
 		//Заполнять Path::$conf['search'] нужно после того как пройдёт инициализация конфигов .infra.json
 		//Чтобы значения по умолчанию не заменили сгенерированные значения
 		Config::init();
+		if (Search::$conf["off"]) return;
 		static::checkFS();
 		
 	}
