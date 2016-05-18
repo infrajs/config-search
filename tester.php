@@ -16,7 +16,7 @@ Search::init();
 $ans = array();
 $ans['search'] = Path::$conf['search'];
 
-if (sizeof(Path::$conf['search']) == 1) {
+if (sizeof(Path::$conf['search']) == 1 && is_dir('vendor/ded/')) {
 	//$ans['class']='bg-warning';
 	return Ans::err($ans,'Только одна папка поиска - '.print_r(Path::$conf['search'], true).', такое может быть ещё для пустого проекта. Как минимум должен быть найден vendor/ded c domready');
 }
