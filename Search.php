@@ -38,6 +38,19 @@ class Search {
 			return $search;
 		});
 		Path::$conf['search'] = array_values(array_unique(array_merge(Path::$conf['search'], $search)));
+
+		if (Config::$all) { //Если все конфиги были уже обраны, нужно заного пробежаться по найденным
+			for ($i = 0; $i < sizeof($search); $i++) {
+				$tsrc = $search[$i];
+				if (!is_dir($tsrc)) continue;
+				$files = scandir($tsrc);
+				foreach ($files as $file) {
+					if ($file{0} == '.') continue;
+					if (!is_dir($tsrc.$file)) continue;
+					Config::load($tsrc.$file.'/.infra.json', $file);
+				}
+			}
+		}
 		/*$comp = Load::loadJSON('composer.json');
 		if ($comp && !empty($comp['require'])) {	
 			foreach ($comp['require'] as $n => $v) {
