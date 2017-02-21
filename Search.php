@@ -36,7 +36,7 @@ class Search {
 				return false; //вглубь не идём и в соседние папки тоже
 			});
 			return $search;
-		});
+		}, array(), !is_dir(Path::$conf['cache']));
 		Path::$conf['search'] = array_values(array_unique(array_merge(Path::$conf['search'], $search)));
 
 		if (Config::$all) { //Если все конфиги были уже обраны, нужно заного пробежаться по найденным
